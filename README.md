@@ -1,50 +1,52 @@
 # Minishell
 
 Minishell is a simplified shell project developed as part of the 42 curriculum.
-The goal of this project is to create a basic shell implementation that mimics the behavior of Bash, handling user input, parsing, executing commands, and managing environment variables — all while following strict coding standards.
+The goal of this project is to implement a basic shell that mimics Bash behavior: handling user input, parsing, executing commands, and managing environment variables, while following strict coding standards.
 
 Features
 
-Prompt Display – Shows a command prompt waiting for user input.
+Prompt display for user input
 
-Command Execution – Supports execution of binaries from PATH as well as absolute and relative paths.
+Command execution with absolute/relative paths and PATH lookup
 
-Built-in Commands:
+Built-in commands:
 
 echo with -n option
 
 cd with relative and absolute paths
 
-pwd (prints working directory)
+pwd
 
-export (set environment variables)
+export
 
-unset (remove environment variables)
+unset
 
-env (display environment variables)
+env
 
 exit
 
-Redirections:
+Redirections: <, >, >>, << (heredoc)
 
-< (input redirection)
+Pipes | to connect commands
 
-> (output redirection, truncate)
+Environment variable expansion ($VAR)
 
->> (output redirection, append)
+Signal handling:
 
-<< (heredoc)
+Ctrl-C interrupts
 
-Pipes (|) – Connects the output of one command to the input of another.
+Ctrl-\ quits
 
-Environment Variables – Handles $VAR expansion.
+Ctrl-D exits shell gracefully
 
-Signal Handling:
+Error handling for invalid commands, syntax errors, and memory leaks
 
-Ctrl-C → interrupts current process
+Technical Requirements
 
-Ctrl-\ → quits current process
+Written in C under the 42 Norm
 
-Ctrl-D → exits the shell gracefully
+No memory leaks (checked with valgrind)
 
-Error Handling – Manages invalid commands, syntax errors, and memory leaks.
+No forbidden functions
+
+Organized structure (lexer, parser, executor, builtins, signals, utils, etc.)
